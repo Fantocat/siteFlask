@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etudiant</title>
+    <script src="{{ url_for('static', filename="js/diffusionEtu.js") }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/diffusionEtu.css") }}">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+
+
+</head>
+<body>
+
+<script>
+        var code = "{{ code }}";
+    </script>
+    <script>
+var socket = io();
+    </script>
+    <script src="{{ url_for('static', filename="js/diffusionEtuSocket.js") }}"></script>
+<div class="container" id="container">
+</div>
+</body>
+</html>

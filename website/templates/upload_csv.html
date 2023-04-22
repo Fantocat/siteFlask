@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Téléchargement de fichiers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+    <script>
+        var regex = new RegExp("(.*?)\.(csv)$");
+
+        function pregmatchCsv(lui) {
+            if (!regex.test(lui.value.toLowerCase())) {
+                lui.value = '';
+                alert('Le fichier doit être au format CSV');
+                //return false;
+            }
+            else {
+                const name = lui.value.split('\\');
+                document.getElementById('csv-input').insertAdjacentHTML('afterend',`<p class="text">File : ${name[name.length - 1]}</p>`);
+            }
+            //return true;
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Ajouter un csv d'élèves</h1>
+    <p class="text">&#x26A0; Attention, le fichier csv transmis doit avoir dans la première colonne les numéros étudiants, dans la
+        seconde les noms, et dans la troisième les prénoms comme dans l'exemple ci-dessous.</p>
+    <p class="text">N°étudiant;Nom;Prénom</p>
+    <form action="{{url_for('prof.csv_temp')}}" method="post" enctype="multipart/form-data">
+        <label class="csv-input" id="csv-input">
+            Ajouter votre fichier csv
+            <input type="file" name="fileInput" id="fileInput" accept="text/csv" onchange='pregmatchCsv(this)' required>
+        </label>
+        <input class="btn-submit" type="submit" value="Télécharger">
+    </form>
+</div>
+</body>
+</html>

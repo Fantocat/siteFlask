@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel séquence</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/panel_SeqGen.css') }}">
+    <script src="{{  url_for('static',filename='js/choose_panel.js') }}"></script>
+</head>
+<body>
+<script>
+        listQ = {{ listQ|tojson }};
+        seq = {{ seq|tojson }};
+        listS = seq.exos;
+</script>
+<div class="container">
+    <h1 class="title">Panel séquence</h1>
+    <div class="contain_list">
+        <div class="panel question">
+            <span class="top">
+                <input type="text" id="tags">
+                <button type="button" value="rechercher" onclick="sortedPerTag()">Rechercher</button>
+            </span>
+            <div class="list question" id="question">
+                <div class="ligne">
+                    <p>Question 1</p>
+                    <img src="/static/img/right.svg" onclick="">
+                </div>
+            </div>
+        </div>
+        <div class="panel sequence">
+            <span class="top">
+                <p>Titre de la sequence : </p>
+                <input type="text" onchange="changeName()" id = "inputName" placeholder="Titre">
+            </span>
+            <div class="list sequence" id="sequence">
+                <div class="ligne">
+                    <p>Sequence 1</p>
+                    <span>
+                        <img src="/static/img/left.svg" onclick="">
+                        <img src="/static/img/top.svg" onclick="">
+                        <img src="/static/img/bot.svg" onclick="">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="" id="formSave" method="post">
+        <input type="text" name="sequenceName" id="name" hidden></input>
+        <div id="inputSequence" hidden="hidden">
+        </div>
+        <input class="btn-submit" type="submit" value="Sauvegarder">
+    </form>
+    <a class="btn-left" href="/prof">
+        <button>Abandonner</button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Création</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/customSelect.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+    <script src="{{ url_for('static',filename='js/customSelect.js') }}"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Creer une question</h1>
+    <form class="form" method="get" action="{{url_for('prof.redirect_modifier',exoid=exoId)}}">
+        <input type="text" class="form-input" name="name" placeholder="titre" required>
+        <input type="text" class="form-input" name="description" placeholder="description" required>
+        <select name="type" class="custom-select">
+            <option value="qcm">QCM</option>
+            <option value="num">Numérique</option>
+            <option value="txt">Ouverte</option>
+        </select>
+        <input type="submit" class="btn-login" value="Créer">
+    </form>
+</div>
+</body>
+</html>
+    

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>modifieur</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/modifier.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-katex-extension/lib/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+          integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/idea.min.css">
+    <script src="https://cdn.rawgit.com/highlightjs/cdn-release/9.10.0/build/highlight.min.js"></script>
+    <script src="{{ url_for('static',filename='/js/modifier.js') }}"></script>
+</head>
+<body>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+    var json = {{exo|tojson}}; //On recupère toutes les valeurs envoyé depuis le serveur
+    let tagsjson = {{tags|tojson}};
+</script>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+    window.mermaid = mermaid;
+
+</script>
+<div class="container">
+    <h1 class="title">Titre : <script>document.write(json.title);</script></h1>
+    <h2 class="subtitle">Description : <script>document.write(json.desc);</script></h2>
+    <form action="{{ url_for('prof.temp',exoid=exo['id']) }}" method="get" class="form">
+        <div class="contain_tag">
+            <div class="tag_choice">
+                <select class="form-control" id="tagsSelect">
+                    <option value="" disabled selected hidden>Choisir un tag déjà existant</option>
+                </select>
+                <button type="button" class="" id="addTag" onclick="addTagSelect()">Ajouter</button>
+                <button type="button" class="" id="delTag" onclick="removeTagSelect()">Enlever</button>
+                <input type="text" class="form-control" id="newTag" placeholder="Nouveau tag">
+                <button type="button" class="" id="addNewTag" onclick="addTagInput()">Ajouter</button>
+            </div>
+            <div class="tag_display">
+                <span>
+                <p>Liste des tags : </p>
+                <p class="list_tag" id="listP"></p>
+                </span>
+                <input class="input_tags" name="tags" type="hidden" id="listI">
+            </div>
+        </div>
+        <div class="contain_question" id="question">
+            <div class="contain_state">
+                <textarea placeholder="Énoncé de la question" name="exoIn" id="exoIn"></textarea>
+                <div><pre id="exoOut"></pre><pre id="mermaidOut"></pre></div>
+            </div>
+        </div>
+        <div class="contain_submit">
+            <input type="submit" class="btn-submit" value="Sauvegarder">
+        </div>
+    </form>
+    <a class="leave" href="{{ url_for('prof.panel_config') }}"><button>Abandonner</button></a>
+</div>
+</body>
+</html>

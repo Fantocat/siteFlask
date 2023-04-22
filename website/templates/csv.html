@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Affichage de fichiers CSV</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4" align="center">
+                <button onclick="window.history.back()" class="button">Retour</button>
+            </div>
+            <div class="col-lg-4" align="center">
+                <a href="/index"><input type="button" class="button" value="Accueil"></a>
+            </div>
+            <div class="col-lg-4" align="center">
+                <a href="{{ url_for('logout') }}"><input type="button" class="button" value="Se déconnecter"></a>
+            </div>
+        </div>
+    </div>
+</header>
+    <body>
+        <table>
+            {% for row in data %}
+            <tr>
+                {% for item in row %}
+                <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

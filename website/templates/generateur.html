@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-katex-extension/lib/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+          integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/idea.min.css">
+    <script src="https://cdn.rawgit.com/highlightjs/cdn-release/9.10.0/build/highlight.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PrintArea/2.4.1/jquery.PrintArea.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='print.css') }}">
+
+</head>
+<body>
+<div class="container">
+    <div class="button_container">
+        <button id="printButton" class="btn btn-primary btn-sm mt-3">Imprimer la page</button>
+        <a href="panel_config.html"><button id="printButton" class="btn btn-primary btn-sm mt-3">Retour au panel</button></a>
+    </div>
+    <div id="exoOut" class="exo_container"></div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#printButton").click(function () {
+            $("#exoOut").printArea();
+        });
+    });
+</script>
+<script type="module"> // je pars du principe que je recois un json avec les exos a imprimer (enonce,rv,rf)
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+
+let exos = {{exosToPrint | tojson}};
+
+const options = {throwOnError: false};
+marked.use(markedKatex(options));
+
+window.onload = function () { // Au lancement de la page on génère les exos à afficher après 50 ms
+    setTimeout(() => {
+        AddExo();
+    }, 50)
+};
+
+
+function AddExo() { // La fonction qui génère les balises avec le contenu de tous les exercices, puis appelle la fonction affichage et colore le code
+    let divTP = document.getElementById("exoOut");
+    let e = 1;
+    Object.keys(exos).forEach(key => {
+        let exo = exos[key];
+        let reponses = exo.rv.concat(exo.rf);
+        divTP.insertAdjacentHTML("beforeend", '<h1>Exo n°' + e + '</h1><div id="divenonce-' + key + '"></div>' + '<div id="mermaidExo' + key + '"class="mermaid"></div>');
+        document.getElementById("divenonce-" + key).innerHTML = '<pre id="enonce-' + key + '"></pre>';
+        document.getElementById("enonce-" + key).innerText = exo.enonce;
+        for (let i = 0; i < reponses.length; i++) {
+            divTP.insertAdjacentHTML("beforeend", '<div id ="divrep-' + key + '-' + i + '"></div>' + '<input type="checkbox">' + '<div id="mermaidRep' + key + '-' + i + '"class="mermaid"></div>');
+            document.getElementById("divrep-" + key + '-' + i).innerHTML = '<pre id="rep-' + key + '-' + i + '"></pre>';
+            document.getElementById('rep-' + key + '-' + i).innerText = reponses[i];
+        }
+        Affichage(key);
+        e++;
+    })
+    document.querySelectorAll('code').forEach(el => {
+        hljs.highlightBlock(el);
+    });
+}
+
+function Affichage(key) { // Fonction qui gère l'affichage de chaque énonce/réponse
+    let exo = exos[key];
+    affichageMarkedMermaid(document.getElementById("enonce-" + key));
+    let reponse = exo.rv.concat(exo.rf);
+    for (let i = 0; i < reponse.length; i++) {
+        affichageMarkedMermaid(document.getElementById("rep-" + key + "-" + i));
+    }
+}
+
+function affichageMarkedMermaid(obj) { //Fonction qui génère le graphique mermaid si existant, et transforme le texte en marked
+    let str_return = obj.innerText;
+    let id = "";
+    let mermaid_str = "";
+    if (obj.id.split('-')[0].includes("enonce")) id = "mermaidExo" + obj.id.split('-')[1];
+    else id = "mermaidRep" + obj.id.split('-')[1] + "-" + obj.id.split('-')[2];
+    let outputMermaid = document.getElementById(id);
+    if (obj.innerText.includes("``` mermaid")) {
+        let pos = obj.innerText.indexOf("``` mermaid");
+        let pos_end = obj.innerText.indexOf("```", pos + 11);
+        mermaid_str = obj.innerText.substring(pos + 11, pos_end);
+        str_return = obj.innerText.replace("``` mermaid" + mermaid_str + "```", '');
+        let code = mermaid_str;
+        if (mermaid.parse(code)) {
+            mermaid.render(outputMermaid.id + 'graph', code, (svg) => {
+                outputMermaid.innerHTML = svg;
+            });
+        }
+    }
+    obj.innerHTML = marked.parse(str_return);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+body {
+    background-image: url("/static/img/informatique.jpg");
+    background-repeat: no-repeat;
+    background-size: 50vw, auto;
+    background-position: bottom,center;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    height: content-box;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 90vw;
+}
+.pageAttente{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 60vh;
+    width: 40vw;
+}
+.pageAttente h1{
+    font-size: 7vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 90%;
+    width: 100%;
+}
+.pageQuestion h1 {
+    font-size: 5vmin;
+    color: #3A5199;
+    width: 60%;
+}
+.pageQuestion p {
+    font-size: 4vmin;
+    color: #3A5199;
+    width: 60%;
+}
+.pageQuestion span {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+.reponses {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 80%;
+    width: 100%;
+    padding-top: 10%;
+}
+.select {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 1px;
+    margin-bottom: 1%;
+}
+.select__item {
+    padding: 1vmin;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    background: #D5D6D2;
+    transition: background 0.1s;
+    color: #3A5199;
+}
+.select__item--selected {
+    background: #3A5199;
+    color: #ffffff;
+}
+.contain-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+}
+.contain-btn button {
+    width: 20%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #3A5199;
+    color: #ffffff;
+    font-size: 2vmin;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.contain-btn button:hover {
+    background-color: #364795;
+}
+.pageQCM {
+    width: 100%;
+}
+.pageNum {
+    width: 100%;
+}
+.reponse {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 10%;
+}
+.reponse p {
+    font-size: 4vmin;
+    color: #3A5199;
+    width: 20%;
+}
+.reponse input {
+    width: 20%;
+    height: 30%;
+    color: #3A5199;
+    font-size: 3vmin;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.pageResultat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: content-box;
+    width: 100%;
+}
+.pageResultat span {
+    font-size: 3vmin;
+    color: #3A5199;
+    width: 50%;
+    height: 10%;
+    margin-bottom: 5%;
+}
+.pageResultat .reponses div {
+    border-radius: 10px;
+    background: #2F2E33;
+    color: #ffffff;
+    min-width: 15%;
+}
+.pageResultat .reponses div p {
+    margin-left: 1vw;
+    color: #FFFFFF;
+}
+.pageResultat h1 {
+    font-size: 5vmin;
+    color: #3A5199;
+    width: 60%;
+}
+.pageResultat .reponses {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: content-box;
+    width: 100%;
+    padding-top: 10%;
+}
+.contain-core {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: content-box;
+    width: 100%;
+}
+.contain-core p {
+    font-size: 3vmin;
+    color: #3A5199;
+    width: 50%;
+    height: 10%;
+    margin-bottom: 5%;
+}
+.pageResultat h2 {
+    font-size: 4vmin;
+    color: #3A5199;
+    width: 60%;
+}
+.pageFin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: content-box;
+    width: 40%;
+    margin-top: 10vh;
+}
+.pageFin h1 {
+    font-size: 6vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageFin p {
+    font-size: 3vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageFin button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #3A5199;
+    color: #ffffff;
+    font-size: 3vmin;
+    cursor: pointer;
+    transition: background 0.1s;
+    margin-top: 5vh;
+}
+.pageFin button:hover {
+    background-color: #364795;
+}
+.pageFin a {
+    width: 50%;
+    height: 5vh;
+}
+
+.pageResultat .reponsesNuage{
+    width: 50vw;
+    height: 50vh;
+}

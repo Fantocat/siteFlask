@@ -1,0 +1,292 @@
+body {
+    background-image: url("/static/img/informatique.jpg");
+    background-repeat: no-repeat;
+    background-size: 50vw, auto;
+    background-position: bottom,center;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    height: content-box;
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 90vw;
+}
+.pageAttente {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 10vh;
+}
+.pageAttente h1 {
+    font-size: 5vmin;
+    color: #3A5199;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.pageAttente h2 {
+    font-size: 4vmin;
+    color: #3A5199;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.pageAttente button {
+    background-color: #3A5199;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    margin-top: 5vh;
+}
+.pageAttente button:hover {
+    background-color: #2E3E7E;
+    cursor: pointer;
+}
+.pageQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.pageQuestion h1 {
+    font-size: 5vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageQCM {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    height: content-box;
+    width: 100%;
+}
+.pageQCM .enonce {
+    position: relative;
+    width: 100%;
+    min-height: 30%;
+    height: content-box;
+    display: flex;
+    flex-direction: row;
+    padding: 2vmin;
+    border-radius: 10px;
+    border: 2px solid #2F2E33;
+}
+.pageQCM .enonce p {
+    font-size: 3vmin;
+    color: #3A5199;
+    text-align: center;
+    margin: 0;
+}
+.pageQCM .reponses {
+    position: relative;
+    width: 100%;
+    min-height: 30%;
+    height: content-box;
+    display: flex;
+    flex-direction: column;
+    padding: 2vmin;
+    border-radius: 10px;
+    border: 2px solid #2F2E33;
+}
+.pageQCM .reponses p {
+    font-size: 3vmin;
+    color: #3A5199;
+    margin: 0;
+}
+.pageQCM .reponses span {
+    margin: 1vh 0;
+    width: 50%;
+}
+.pageQCM .reponses span div {
+    background-color: #3A5199;
+    border-radius: 5px;
+    min-width: 10%;
+    padding: 0 0.5vmin;
+}
+.pageQCM .reponses span div p{
+    color: #FFFFFF;
+}
+.pageQCM .contain-btn {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.pageQCM .contain-btn button {
+    background-color: #3A5199;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+.pageQCM .contain-btn button:hover {
+    background-color: #2E3E7E;
+    cursor: pointer;
+}
+.pageQCM .donnees {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1vh 1vw;
+}
+.pageQCM .donnees p {
+    font-size: 3vmin;
+    color: #3A5199;
+    text-align: center;
+    margin: 0;
+}
+.pageQuestion input[type="checkbox"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1vh 1vw;
+    height: 3vmin;
+    width: 3vmin;
+}
+.pageNum {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.pageNum h1 {
+    font-size: 5vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageNum .enonce {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 30vh;
+    height: content-box;
+    border-radius: 10px;
+    border: 2px solid #2F2E33;
+}
+.pageNum .enonce p {
+    font-size: 3vmin;
+    color: #3A5199;
+    width: 60%;
+    margin: 2vmin;
+}
+.pageNum .bas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    padding-bottom: 3vh;
+}
+.pageNum .reponses {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    padding: 2vmin;
+    border-radius: 10px;
+    border: 2px solid #2F2E33;
+} .pageNum .reponses p {
+    font-size: 3vmin;
+    color: #3A5199;
+    margin: 0;
+}
+.pageNum .reponses span {
+    margin: 1vh 0;
+    width: 50%;
+}
+.pageNum .reponses span div {
+    background-color: #3A5199;
+    border-radius: 5px;
+    min-width: 10%;
+    padding: 0 0.5vmin;
+}
+.pageNum .reponses span div p{
+    color: #FFFFFF;
+}
+.pageNum .contain-btn {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pageNum .contain-btn button {
+    background-color: #3A5199;
+    margin: 0.2vh 0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+}
+.pageNum .contain-btn button:hover {
+    background-color: #2E3E7E;
+    cursor: pointer;
+}
+.pageNum .donnees p {
+    font-size: 3vmin;
+    color: #3A5199;
+    text-align: center;
+    margin: 1vh 0;
+}
+.pageFin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+}
+.pageFin h1 {
+    margin-top: 20vh;
+    font-size: 5vmin;
+    color: #3A5199;
+    text-align: center;
+}
+.pageFin a {
+    width: 60%;
+    height: 10%;
+    margin: 1vh 0;
+}
+.pageFin a button {
+    background-color: #3A5199;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    width: 100%;
+    height: 100%;
+}
+.pageFin a button:hover {
+    background-color: #2E3E7E;
+    cursor: pointer;
+}
+
+.pageResultat .reponsesNuage{
+    width: 50vw;
+    height: 50vh;
+}

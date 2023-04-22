@@ -1,0 +1,208 @@
+body {
+    background-image: url("/static/img/informatique.jpg");
+    background-repeat: no-repeat;
+    background-size: 50vw, auto;
+    background-position: bottom,center;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90vw;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+.top .title {
+    font-size: 5vmin;
+    font-weight: bold;
+    color: #3A5199;
+}
+.top-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+}
+.top-left .select-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.top-left .select-question {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+.top-left button {
+    width: 20%;
+    height: 4vh;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    background-color: #3A5199;
+    color: #FFFFFF;
+    font-size: 2vmin;
+    margin : 0 0.5vw;
+}
+.top-left button:hover {
+    background-color: #364795;
+}
+.top-left select {
+    width: 30%;
+    height: 4vh;
+    cursor: pointer;
+    font-size: 2vmin;
+}
+.top-left img {
+    width: 3vw;
+    height: 3vh;
+}
+.top-left img:hover {
+    opacity: 0.7;
+}
+.top-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+.mid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+}
+.mid-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+}
+.mid-left p {
+    font-size: 3vmin;
+    color: #3A5199;
+}
+.mid-left .student-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    height: 80%;
+    overflow: auto;
+    background-color: #D5D6D2;
+    border-radius: 10px;
+    margin-bottom: 0.5vh;
+}
+.mid-left .student-list .student {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 8%;
+    border: #2F2E33 1px solid;
+    border-radius: 10px;
+    padding: 1%;
+    margin: 0.5%;
+    background-color: #ffffff;
+}
+.mid-left .student-list .student:hover {
+    box-shadow: #2F2E33 2px 2px 5px ;
+}
+.mid-left .student-list .student p {
+    font-size: 2vmin;
+    color: #3A5199;
+}
+.mid-left img {
+    width: 10%;
+    height: 80%;
+}
+.mid-left img:hover {
+    opacity: 0.5;
+}
+.mid-left span {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+}
+.mid-left span input {
+    width: 60%;
+    height: 3vh;
+    cursor: pointer;
+    font-size: 2vmin;
+}
+.mid-left span button {
+    width: 40%;
+    height: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    background-color: #3A5199;
+    color: #FFFFFF;
+    font-size: 2vmin;
+}
+
+.mid-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    border: #2F2E33 1px solid;
+}
+.bot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+.bot a {
+    text-decoration: none;
+    width: 40%;
+    height: 100%;
+}
+.bot button {
+    width: 100%;
+    height: 4vh;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 0;
+    background-color: #3A5199;
+    color: #FFFFFF;
+}
+.bot button:hover {
+    background-color: #364795;
+}

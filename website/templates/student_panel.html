@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/css/index.css') }}">
+    <title>Panel Étudiant</title>
+
+</head>
+<body>
+<a class="logout" href="/logout"><img src="/static/img/off.svg"></a>
+<div class="container">
+    <h1 class="title">QuizzCPT</h1>
+    <form action="{{ url_for('etu.temp_etu') }}" method="post">
+        <input type="text" name="code" placeholder="Entrer le code" class="form-input" required>
+        <input type="submit" name="submit" value="Valider" class="btn-login">
+    </form>
+    <!--<p class="error">Le code n'existe pas ou la diffusion n'as pas commencé</p>-->
+</div>
+</body>

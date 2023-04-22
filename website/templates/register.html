@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau Compte</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/css/index.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2 class="subtitle">Créer un compte</h2>
+    <form action="register" method="post">
+        <input class="form-input" name="username" type="text" placeholder="Nom d'utilisateur" required>
+        <input class="form-input" name="password" type="password" placeholder="Mot de passe" required>
+        <input class="btn-login" type="submit" value="S'inscrire">
+    </form>
+    <a class="a-signIn" href="/">
+        <button class="btn-signIn">Se connecter</button>
+    </a>
+    <p class="error">{{ error }}</p>
+</div>
+</body>
+</html>

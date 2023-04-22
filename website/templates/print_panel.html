@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Générer</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/print_panel.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='/css/customSelect.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/impression.css') }}" media="print">
+    <script src="{{ url_for('static',filename='js/customSelect.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/print_panel.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked-katex-extension/lib/index.umd.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+          integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/idea.min.css">
+    <script src="https://cdn.rawgit.com/highlightjs/cdn-release/9.10.0/build/highlight.min.js"></script>
+</head>
+<body>
+<script>
+    listQ = {{ listQ|tojson }};
+    tagsDict = {{ tags|tojson }};
+    const options = {throwOnError: false};
+</script>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
+    window.mermaid = mermaid;
+</script>
+<div class="container">
+    <h1>Panel d'impression</h1>
+    <div id="listType">
+    <span>
+        <p>Nombre de question de type : </p>
+        <select class="selectType" onchange="onChoosetag(0)">
+            <option value="" disabled selected hidden>Choisir un tag</option>
+        </select>
+        <p>entre : </p>
+        <select class="min">
+
+        </select>
+        <p> et : </p>
+        <select class="max">
+
+        </select>
+    </span>
+    </div>
+    <span>
+    <button onclick="addType()">Ajouter un type de question</button>
+    <button onclick="removeType()">Supprimer un type de question</button>
+    </span>
+    <span><p>Nombre total de questions : </p><input type="text" id="nbTotal"></span>
+    <span><p>Nombre de sujet : </p><input type="text" id="nbSujet"></span>
+    <span><p>Titre des Sujets : </p><input type="text" id="titreExam"></span>
+    <select class="custom-select" id="ordre">
+        <option value="true">Question dans l'ordre</option>
+        <option value="false">Question mélangé</option>
+    </select>
+    <select class="custom-select" id="name">
+        <option value="true">Copie Nominatif</option>
+        <option value="false">Copie Anonyme</option>
+    </select>
+    <button onclick="createSujet()">Générer les sujets</button>
+    <button onclick="print()">Imprimer</button>
+</div>
+<div id="containSubjects" class="containSubjects">
+
+</div>
+</body>
+</html>

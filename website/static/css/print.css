@@ -1,0 +1,45 @@
+@media print {
+            @page {
+                margin-top: 0;
+                margin-bottom: 0;
+                size:auto;
+            }
+
+            body {
+                padding-top: 72px;
+                padding-bottom: 72px;
+            }
+
+            h4 {
+                display: none;
+            }
+        }
+header{
+    border-bottom: 1px solid black;
+    background-color: blue;
+    height: 90px;
+    margin: 0;
+    background: linear-gradient(blue, rgb(0, 183, 255));
+
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 7px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.button:hover{
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+
+}

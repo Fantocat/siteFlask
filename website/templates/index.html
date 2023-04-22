@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat avec Flask-SocketIO</title>
+    <script src="https://cdn.socket.io/4.4.1/socket.io.esm.min.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', function() {
+            document.getElementById("status").innerHTML = "Connecté";
+        });
+
+        socket.on('disconnect', function() {
+            document.getElementById("status").innerHTML = "Déconnecté";
+        });
+
+        socket.on('messagte', function(data) {
+            console.log("reçu : "+data);
+            var messages_list = document.getElementById("messages");
+            var message = document.createElement("li");
+            message.innerHTML = data;
+            messages_list.appendChild(message);
+        });
+
+        function send_message() {
+            var input = document.getElementById("input");
+            var message = input.value;
+            input.value = "";
+            console.log("envoi : "+message);
+            socket.emit('new_message', message);
+        }
+    </script>
+</head>
+<body>
+    <h1>Chat avec Flask-SocketIO</h1>
+    <div id="status">Déconnecté</div>
+    <ul id="messages"></ul>
+    <input type="text" id="input">
+    <button onclick="send_message()">Envoyer</button>
+</body>
+</html>

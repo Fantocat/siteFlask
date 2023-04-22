@@ -1,0 +1,130 @@
+body {
+    background-image: url("/static/img/informatique.jpg");
+    background-repeat: no-repeat;
+    background-size: 50vw, auto;
+    background-position: bottom, center;
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    height: content-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+    height: content-box;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+span {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#listType {
+    width: 60%;
+}
+
+#listType span {
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 8vmin;
+    font-weight: 600;
+    color: #3A5199;
+    text-align: center;
+}
+
+button {
+    width: 50%;
+    height: 5vh;
+    margin: 1vh 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #3A5199;
+    color: white;
+    font-size: 3vmin;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2E3E7E;
+}
+
+span button {
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3A5199;
+    color: white;
+    font-size: 2vmin;
+    cursor: pointer;
+}
+
+p {
+    font-size: 2vmin;
+    color: #3A5199;
+    text-align: center;
+}
+
+.containSubjects {
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.containSubjects .sujet {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    margin: 1vh 0;
+
+}
+.containSubjects .header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vh 0;
+    background-color: #dddddd;
+}
+
+.containSubjects .header span {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
+@media print {
+    .container {
+        display: none;
+    }
+
+    @page {
+        margin-top: 0;
+        margin-bottom: 0;
+        size: auto;
+    }
+
+
+    .sujet:not(:first-child) {
+        page-break-before: always;
+        orphans: 0;
+    }
+}

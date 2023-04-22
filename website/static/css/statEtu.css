@@ -1,0 +1,110 @@
+body {
+    background-image: url("/static/img/informatique.jpg");
+    background-repeat: no-repeat;
+    background-size: 50vw, auto;
+    background-position: bottom,center;
+    margin: 0;
+    width: 100vw;
+    height: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 100%;
+    height: content-box;
+    padding: 0 2vw;
+    border: #2F2E33;
+    border-radius: 10px;
+}
+.bandeau {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.bandeau h2 {
+    text-align: center;
+    color: #3A5199;
+    font-size: 4vmin;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+.bandeau input {
+    width: 80%;
+    height: 4%;
+    margin-bottom: 1vh;
+    border: 1px solid #2F2E33;
+    background-color: #D5D6D2;
+}
+.bandeau button {
+    width: 80%;
+    height: 5%;
+    margin-bottom: 1vh;
+    border: 1px solid #2F2E33;
+    border-radius: 10px;
+    background-color: #3A5199;
+    color: #ffffff;
+}
+.student-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: #D5D6D2;
+    padding: 1%;
+    border-radius: 10px;
+}
+.title {
+    text-align: center;
+    color: #3A5199;
+    font-size: 6vmin;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: content-box;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 20%;
+}
+table {
+    width: 80%;
+    height: content-box;
+    border: 1px solid #2F2E33;
+    border-radius: 10px;
+    background-color: #D5D6D2;
+    text-align: center;
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid #2F2E33;
+    background-color: #ffffff;
+    padding: 0.5vmin;
+}
+.right a {
+    margin-top: 0.5vh;
+    margin-bottom: 3vh;
+    height: 5vh;
+    width: 40%;
+}
+.right button {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2F2E33;
+    border-radius: 10px;
+    background-color: #3A5199;
+    color: #ffffff;
+}

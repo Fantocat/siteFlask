@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/css/panel.css') }}">
+    <script src="{{ url_for('static',filename='js/panel_config.js') }}"></script>
+    <title>Panel Config</title>
+</head>
+<body>
+<script>let exos = {{ exos|tojson }};
+let sequences = {{ sequences|tojson }};
+console.log(sequences);
+</script>
+<a class="logout" href="/logout"><img src="/static/img/off.svg"></a>
+<div class="container">
+    <h1 class="title">Panel De Configuration</h1>
+    <div class="containList">
+        <div class="list questions" id="questions">
+            <a href="{{ url_for('prof.creer')}}" class="aTab">
+                <img src="/static/img/plus.svg" class="plus">
+                <p class="text">Nouvelle question</p>
+            </a>
+            <div class="tab">
+                <p class="text">TitreQ 1</p>
+                <div class="icons">
+                    <a href="">
+                        <img class="pencil" src="/static/img/pencil.svg">
+                    </a>
+                    <a href="">
+                        <img class="eye" src="/static/img/eye.svg">
+                    </a>
+                    <a class="start" href="">Start</a>
+                    <a href="">
+                        <img class="trashcan" src="/static/img/trash-can.svg">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list sequences" id="sequences">
+            <a href="{{ url_for('prof.creerSeq') }}" class="aTab">
+                <img src="/static/img/plus.svg" class="plus">
+                <p class="text">Nouvelle séquence</p>
+            </a>
+            <div class="tab">
+                <p class="text">TitreS 1</p>
+                <div class="icons">
+                    <a href="">
+                        <img class="pencil" src="/static/img/pencil.svg">
+                    </a>
+                    <a href="">
+                        <img class="eye" src="/static/img/eye.svg">
+                    </a>
+                    <a class="start" href="">Start</a>
+                    <a href="">
+                        <img class="trashcan" src="/static/img/trash-can.svg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="recherche">
+        <input id="tags" type="text">
+        <button class="button" onclick="sortedPerTag()">Rechercher</button>
+    </div>
+    <div class="containButton">
+        <a href="{{ url_for('prof.upload_csv') }}"><button class="button">Ajouter un csv d'élèves</button></a>
+        <a href="{{ url_for('prof.print_panel') }}"><button class="button">Générer une feuille de question</button></a>
+        <a href="/"><button class="button">Panel statistique par étudiant</button></a>
+    </div>
+</div>
+</body>
+</html>

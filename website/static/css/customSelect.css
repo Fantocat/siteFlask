@@ -1,0 +1,38 @@
+.select {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    gap: 1px;
+    margin-bottom: 1%;
+}
+.student-list .select {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.select__item {
+    padding: 1vmin;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    background: #D5D6D2;
+    transition: background 0.1s;
+}
+.student-list .select__item {
+    padding: 1vmin;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 10px;
+    background: #3A5199;
+    color: #ffffff;
+    transition: background 0.1s;
+}
+.select__item--selected {
+    background: #3A5199;
+    color: #ffffff;
+}
+.student-list .select__item--selected {
+    background: #2F2E33;
+    color: #ffffff;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats Séquence</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='/css/statistiqueTab.css') }}">
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <div class="top-left">
+            <div class="select-date">
+                <select>
+                    <option value="" disabled selected hidden>Choisir une date</option>
+                    <option value="24/04/2010:11,56">date 1</option>
+                </select>
+                <button>Valider</button>
+                <img src="/static/img/trash-can.svg">
+            </div>
+            <div class="select-question">
+                <select>
+                    <option value="" disabled selected hidden>Choisir une question</option>
+                    <option value="EA23B5R9">TitreQuest</option>
+                </select>
+                <button>Valider</button>
+                <button>Reset</button>
+            </div>
+        </div>
+        <div class="top-right">
+            <h1 class="title">TiTre de la Séquence</h1>
+        </div>
+    </div>
+    <div class="mid">
+        <div class="mid-left">
+            <p>Liste des élèves</p>
+            <div class="student-list">
+                <div class="student">
+                    <p>N°Etudiant Name</p>
+                    <img src="/static/img/eye.svg">
+                </div>
+            </div>
+            <span>
+                <input type="text">
+                <button>Rechercher</button>
+            </span>
+        </div>
+        <div class="mid-right">Tableau</div>
+    </div>
+    <div class="bot">
+        <a>
+            <button>Retour au panel</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
